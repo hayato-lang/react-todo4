@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
 
 export const App = () => {
+  const [incompleteTodos, setIncompleteTodos] = useState([
+    "ああああああ",
+    "いいいいいい"
+  ]);
+  const [completeTodos, setCompleteTodos] = useState([
+    "ううううううう",
+    "えええええええ"
+  ]);
   return (
     <>
       <div className="input-area">
@@ -9,31 +17,30 @@ export const App = () => {
         <button>追加</button>
       </div>
       <div className="incomplete-area">
+        <p className="title">未完了のTODO</p>
         <ul>
-          <p className="title">未完了のTODO</p>
-          <div className="list-row">
-            <li>あああああああ</li>
-            <button>完了</button>
-            <button>削除</button>
-          </div>
-          <div className="list-row">
-            <li>いいいいいいい</li>
-            <button>完了</button>
-            <button>削除</button>
-          </div>
+          {incompleteTodos.map((todo) => {
+            return (
+              <div className="list-row">
+                <li>{todo}</li>
+                <button>完了</button>
+                <button>削除</button>
+              </div>
+            );
+          })}
         </ul>
       </div>
       <div className="complete-area">
+        <p className="title">完了したTODO</p>
         <ul>
-          <p className="title">未完了のTODO</p>
-          <div className="list-row">
-            <li>ううううううう</li>
-            <button>戻す</button>
-          </div>
-          <div className="list-row">
-            <li>えええええええ</li>
-            <button>戻す</button>
-          </div>
+          {completeTodos.map((todo) => {
+            return (
+              <div className="list-row">
+                <li>{todo}</li>
+                <button>戻す</button>
+              </div>
+            );
+          })}
         </ul>
       </div>
     </>
