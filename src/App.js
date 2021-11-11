@@ -47,7 +47,7 @@ export const App = () => {
         todoText={todoText}
         onChange={onChangeText}
         onClick={onClickAdd}
-        disabled={incompleteTodos >= 5}
+        disabled={incompleteTodos.length >= 5}
       />
 
       <div className="incomplete-area">
